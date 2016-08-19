@@ -1,13 +1,13 @@
-# Authors
-# -------
-#
-# Sami Lanu <sami.lanu@tut.fi>
-#
-# Copyright
-# ---------
-#
-# Copyright 2016 Tampere University of Technology
-#
+rem Authors
+rem -------
+rem
+rem Sami Lanu <sami.lanu@tut.fi>
+rem
+rem Copyright
+rem ---------
+rem
+rem Copyright 2016 Tampere University of Technology
+rem
 rem @echo off
 set CONTENTDIR = \\path\to\xml\
 set TASKNAME = name_of_backup_task
