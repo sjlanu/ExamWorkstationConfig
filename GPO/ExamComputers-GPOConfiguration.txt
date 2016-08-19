@@ -1,0 +1,354 @@
+# Authors
+# -------
+#
+# Sami Lanu <sami.lanu@tut.fi>
+#
+# Copyright
+# ---------
+#
+# Copyright 2016 Tampere University of Technology
+#
+
+Security Filtering
+The settings in this GPO can only apply to the following groups, users, and computers:
+Name 
+NT AUTHORITY\Authenticated Users 
+
+Delegation
+These groups and users have the specified permission for this GPO
+Name Allowed Permissions Inherited 
+MyCompany\Domain Admins Edit settings, delete, modify security No 
+MyCompany\Enterprise Admins Edit settings, delete, modify security No 
+MyCompany\GPO Readers Read No 
+MyCompany\Server Admins Edit settings, delete, modify security No 
+NT AUTHORITY\Authenticated Users Read (from Security Filtering) No 
+NT AUTHORITY\ENTERPRISE DOMAIN CONTROLLERS Read No 
+NT AUTHORITY\SYSTEM Edit settings, delete, modify security No 
+
+Computer Configuration (Enabled)
+Policies
+Windows Settings
+Scripts
+Startup
+For this GPO, Script order: Not configured
+Name Parameters 
+\\groupserver.MyCompany.MyDomain\gpinstall$\Logonscripts\ExamComputers\CreateTUT_WSAdminEventChannel.cmd  
+
+Security Settings
+Account Policies/Password Policy
+Policy Setting 
+Maximum password age 0 days 
+Minimum password age 0 days 
+Minimum password length 0 characters 
+Password must meet complexity requirements Disabled 
+
+Local Policies/User Rights Assignment
+Policy Setting 
+Allow log on locally MyCompany\Workstation Admins, MyCompany\examtunnus, MyCompany\nagios_ro, MyCompany\Domain Admins, BUILTIN\Administrators 
+Deny log on locally MyCompany\RO_STAFF, MyCompany\RO_STUDENT, MyCompany\RO_UFO 
+
+Local Policies/Security Options
+Interactive Logon
+Policy Setting 
+Interactive logon: Do not require CTRL+ALT+DEL Enabled 
+Interactive logon: Number of previous logons to cache (in case domain controller is not available) 0 logons 
+
+Shutdown
+Policy Setting 
+Shutdown: Allow system to be shut down without having to log on Disabled 
+
+Restricted Groups
+Group Members Member of 
+BUILTIN\Administrators MyCompany\Workstation Admins BUILTIN\Administrators 
+
+System Services
+Remote Registry (Startup Mode: Automatic)
+Permissions
+No permissions specified
+Auditing
+No auditing specified
+File System
+%AllUsersProfile%
+Configure this file or folder then: Propagate inheritable permissions to all subfolders and files
+Owner  
+
+PermissionsType Name Permission Apply To 
+Deny MyCompany\Domain Users Full Control This folder, subfolders and files 
+Allow inheritable permissions from the parent to propagate to this object and all child objects Disabled 
+
+Auditing
+No auditing specified
+%SystemDrive%\Users\Public
+Configure this file or folder then: Propagate inheritable permissions to all subfolders and files
+Owner  
+
+PermissionsType Name Permission Apply To 
+Deny MyCompany\Domain Users Full Control This folder, subfolders and files 
+Allow inheritable permissions from the parent to propagate to this object and all child objects Disabled 
+
+Auditing
+No auditing specified
+Windows Firewall with Advanced Security
+Global Settings
+Policy Setting 
+Policy version 2.10 
+Disable stateful FTP Not Configured 
+Disable stateful PPTP Not Configured 
+IPsec exempt Not Configured 
+IPsec through NAT Not Configured 
+Preshared key encoding Not Configured 
+SA idle time Not Configured 
+Strong CRL check Not Configured 
+
+Connection Security Settings
+Administrative Templates
+Policy definitions (ADMX files) retrieved from the central store.
+Network/Network Connections/Windows Firewall/Domain Profile
+Policy Setting Comment 
+Windows Firewall: Allow ICMP exceptions Enabled  
+Allow outbound destination unreachable Enabled 
+Allow outbound source quench Enabled 
+Allow redirect Enabled 
+Allow inbound echo request Enabled 
+Allow inbound router request Enabled 
+Allow outbound time exceeded Enabled 
+Allow outbound parameter problem Enabled 
+Allow inbound timestamp request Enabled 
+Allow inbound mask request Enabled 
+Allow outbound packet too big Enabled 
+ 
+System/Group Policy
+Policy Setting Comment 
+Configure user Group Policy loopback processing mode Disabled  
+
+System/Logon
+Policy Setting Comment 
+Hide entry points for Fast User Switching Enabled  
+
+Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections
+Policy Setting Comment 
+Allow users to connect remotely by using Remote Desktop Services Enabled  
+
+Windows Components/Windows Logon Options
+Policy Setting Comment 
+Disable or enable software Secure Attention Sequence Enabled  
+Set which software is allowed to generate the Secure Attention Sequence Services and Ease of Access applications 
+ 
+Windows Components/Windows Update
+Policy Setting Comment 
+Automatic Updates detection frequency Enabled  
+Check for updates at the following 
+interval (hours):  7 
+ 
+Policy Setting Comment 
+Configure Automatic Updates Enabled  
+Configure automatic updating: 4 - Auto download and schedule the install 
+The following settings are only required and applicable if 4 is selected. 
+Install during automatic maintenance Disabled 
+Scheduled install day:  0 - Every day 
+Scheduled install time: 05:00 
+ 
+Policy Setting Comment 
+Enable client-side targeting Enabled  
+Target group name for this computer ExamComputers 
+ 
+Policy Setting Comment 
+Enabling Windows Update Power Management to automatically wake up the system to install scheduled updates Enabled  
+Specify MyCompanynet Microsoft update service location Enabled  
+Set the MyCompanynet update service for detecting updates: http://wsus-ws.MyCompany.MyDomain:8530 
+Set the MyCompanynet statistics server: http://wsus-ws.MyCompany.MyDomain:8530 
+(example: http://IntranetUpd01) 
+ 
+
+Preferences
+Windows Settings
+Files
+File (Target Path: %PUBLIC%\Desktop\EXIT_EXAM.cmd)
+EXIT_EXAM.cmd (Order: 1)
+General
+Action Update 
+PropertiesSource file(s) \\sw.MyCompany.MyDomain\Deploy\scripts\ExamComputers\EXIT_EXAM.cmd 
+Destination file %PUBLIC%\Desktop\EXIT_EXAM.cmd 
+Suppress errors on individual file actions Disabled 
+AttributesRead-only Enabled 
+Hidden Disabled 
+Archive Disabled 
+
+Common
+OptionsStop processing items on this extension if an error occurs on this item Yes 
+Remove this item when it is no longer applied No 
+Apply once and do not reapply No 
+
+Control Panel Settings
+Local Users and Groups
+Group (Name: Distributed COM Users (built-in))
+Distributed COM Users (built-in) (Order: 1)
+Local Group
+Action Update 
+PropertiesGroup name Distributed COM Users (built-in) 
+Delete all member users Disabled 
+Delete all member groups Disabled 
+Add membersMyCompany\nagios_ro S-1-5-21-2848224991-410741525-331976621-42387 
+
+Common
+OptionsStop processing items on this extension if an error occurs on this item Yes 
+Remove this item when it is no longer applied No 
+Apply once and do not reapply No 
+
+Group (Name: Performance Monitor Users (built-in))
+Performance Monitor Users (built-in) (Order: 2)
+Local Group
+Action Update 
+PropertiesGroup name Performance Monitor Users (built-in) 
+Delete all member users Disabled 
+Delete all member groups Disabled 
+Add membersMyCompany\nagios_ro S-1-5-21-2848224991-410741525-331976621-42387 
+
+Common
+OptionsStop processing items on this extension if an error occurs on this item Yes 
+Remove this item when it is no longer applied No 
+Apply once and do not reapply No 
+
+Scheduled Tasks
+Scheduled Task (At least Windows 7) (Name: ProfileAndTempDeleteLogoff)
+ProfileAndTempDeleteLogoff (Order: 1)
+General
+Action Update 
+Task Name  ProfileAndTempDeleteLogoff   
+ Author  MyCompany\tunnus   
+ Description     
+ Run only when user is logged on  Password   
+ UserId  SYSTEM   
+ Run with highest privileges  HighestAvailable   
+ Hidden  No   
+ Configure for  1.2   
+ Enabled  Yes   
+Triggers1. On an event     
+ Delay task for  30 seconds   
+ Enabled  Yes   
+     
+ Subscription  <QueryList><Query Id="0" Path="Application"><Select Path="Application">*[System[Provider[@Name='TUT_WSAdmin'] and EventID=124]]</Select></Query></QueryList>   
+Actions1. Start a program     
+ Program/script  \\sw.MyCompany.MyDomain\Deploy\scripts\ExamComputers\ProfileDelete.cmd   
+2. Start a program     
+ Program/script  \\sw.MyCompany.MyDomain\Deploy\scripts\ExamComputers\siivous.cmd   
+Settings Stop if the computer ceases to be idle  Yes   
+ Restart if the idle state resumes  No   
+ Start the task only if the computer is on AC power  Yes   
+ Stop if the computer switches to battery power  Yes   
+ Allow task to be run on demand  Yes   
+ Run task as soon as possible after a scheduled start is missed  No   
+ Stop task if it runs longer than  3 days   
+ If the running task does not end when requested, force it to stop  Yes   
+ If the task is already running, then the following rule applies  IgnoreNew   
+
+Common
+OptionsStop processing items on this extension if an error occurs on this item No 
+Remove this item when it is no longer applied No 
+Apply once and do not reapply No 
+
+User Configuration (Enabled)
+Policies
+Windows Settings
+Scripts
+Logon
+For this GPO, Script order: Not configured
+Name Parameters 
+\\groupserver.MyCompany.MyDomain\gpinstall$\Logonscripts\ExamComputers\PinProgram.bat  
+\\groupserver.MyCompany.MyDomain\gpinstall$\Logonscripts\ExamComputers\Copy_PyCharm_Settings.cmd  
+\\groupserver.MyCompany.MyDomain\gpinstall$\Logonscripts\ExamComputers\UnPinTaskBarItem.cmd  
+
+Logoff
+For this GPO, Script order: Not configured
+Name Parameters 
+\\groupserver.MyCompany.MyDomain\gpinstall$\Logonscripts\ExamComputers\logoff\EXIT_EXAM.cmd  
+
+Administrative Templates
+Policy definitions (ADMX files) retrieved from the central store.
+Control Panel
+Policy Setting Comment 
+Show only specified Control Panel items Enabled  
+List of allowed Control Panel items 
+Microsoft.Mouse 
+ 
+ 
+
+Control Panel/Personalization
+Policy Setting Comment 
+Password protect the screen saver Enabled  
+Prevent changing color and appearance Enabled  
+Prevent changing color scheme Enabled  
+Prevent changing desktop background Enabled  
+Prevent changing desktop icons Enabled  
+Prevent changing mouse pointers Enabled  
+Prevent changing screen saver Enabled  
+Prevent changing sounds Enabled  
+Prevent changing theme Enabled  
+Prevent changing visual style for windows and buttons Enabled  
+
+Desktop
+Policy Setting Comment 
+Hide Internet Explorer icon on desktop Enabled  
+Prohibit adjusting desktop toolbars Enabled  
+Remove Recycle Bin icon from desktop Enabled  
+
+Start Menu and Taskbar
+Policy Setting Comment 
+Clear history of recently opened documents on exit Enabled  
+Clear the recent programs list for new users Enabled  
+Clear tile notifications during log on Enabled  
+Do not search communications Enabled  
+Do not search for files Enabled  
+Lock all taskbar settings Enabled  
+Lock the Taskbar Enabled  
+Prevent users from adding or removing toolbars Enabled  
+Prevent users from customizing their Start Screen Enabled  
+Prevent users from moving taskbar to another screen dock location Enabled  
+Prevent users from rearranging toolbars Enabled  
+Prevent users from resizing the taskbar Enabled  
+Remove All Programs list from the Start menu Enabled  
+Remove and prevent access to the Shut Down, Restart, Sleep, and Hibernate commands Enabled  
+Remove Default Programs link from the Start menu. Enabled  
+Remove Documents icon from Start Menu Enabled  
+Remove Favorites menu from Start Menu Enabled  
+Remove frequent programs list from the Start Menu Enabled  
+Remove Games link from Start Menu Enabled  
+Remove Help menu from Start Menu Enabled  
+Remove Logoff on the Start Menu Enabled  
+Remove Music icon from Start Menu Enabled  
+Remove Network Connections from Start Menu Enabled  
+Remove Network icon from Start Menu Enabled  
+Remove Pictures icon from Start Menu Enabled  
+Remove programs on Settings menu Enabled  
+Remove Run menu from Start Menu Enabled  
+Remove Search Computer link Enabled  
+Remove Search link from Start Menu Enabled  
+
+System
+Policy Setting Comment 
+Don't run specified Windows applications Enabled  
+List of disallowed applications 
+iexplore.exe 
+ 
+ 
+
+Windows Components/File Explorer
+Policy Setting Comment 
+Do not move deleted files to the Recycle Bin Enabled  
+
+Preferences
+Control Panel Settings
+Folder Options
+Open With (Extension: html, Program: C:\Program Files (x86)\Mozilla Firefox\firefox.exe)
+html (Order: 1)
+General
+Action Update 
+PropertiesFile Extension html 
+Associated Program C:\Program Files (x86)\Mozilla Firefox\firefox.exe 
+Set as default Enabled 
+
+Common
+OptionsStop processing items on this extension if an error occurs on this item No 
+Run in logged-on user's security context (user policy option) Yes 
+Remove this item when it is no longer applied No 
+Apply once and do not reapply No 
