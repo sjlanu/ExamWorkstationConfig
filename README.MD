@@ -10,6 +10,7 @@
 ## Description
 
 Windows workstation configurations for Exam including Group Policy settings and scripts
+
 More about Exam https://confluence.csc.fi/display/EXAM/EXAM
 
 Main features are:
