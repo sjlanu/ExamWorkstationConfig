@@ -31,8 +31,12 @@ Main features are:
      - Calls "**UnPinTaskbar_2.vbs**"
 - When finished exam, user logoff will trigger:
   - Logoff script "**EXIT_EXAM.cmd**" that creates event 124, triggers Scheduled Task "**ProfileAndTempDeleteLogoff**" that runs:
-	- "**ProfileDelete.cmd**" which removes *all* local profiles
-	- "**siivous.cmd**" that removes "*c:\temp*", re-creates it and set permissions to "*c:\temp*"
+	- "**ProfileDelete.cmd**" calls powershell script to
+   - Remove all inactive profiles with Delprof2.exe
+   - Remove/create c:\temp and set permissions
+   - test that Examuser profile does not exist
+   - test that c:\temp is empty
+    - If not, write logfile
 
 Backup Exam users session:
 - "**schtask_backup_exam.cmd**" -> creates scheduled task "*schtask_backup_exam*" that runs  when "*examuser*" logs off (Custom EventID 124 is triggered by "**EXIT_EXAM.cmd**")
