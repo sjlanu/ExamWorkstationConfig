@@ -22,6 +22,7 @@ touch $touchfile
 # set scriptpath to currentdir
 # $scriptpath = Split-Path -Parent $MyInvocation.MyCommand.Definition
 # Run delprof2
+Start-Sleep -s 10
 Start-Process -Filepath $scriptpath\delprof2.exe -ArgumentList ('/q','/u') -NoNewWindow -Wait
 # remove c:\temp
 remove-item -recurse -force c:\temp
@@ -40,4 +41,5 @@ if ($dircontents.count -ne 0) {
 touch $logpath\c-temp-not-empty-$env:computername-$date.txt
 }
 # remove $touchfile
+Start-Sleep -s 5
 remove-item -force $touchfile
