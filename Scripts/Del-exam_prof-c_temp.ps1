@@ -30,7 +30,7 @@ remove-item -recurse -force c:\temp
 new-item c:\temp -type directory -force
 # set permissions to c:\temp
 cmd /c icacls.exe "c:\temp" /grant "*S-1-5-11:(OI)(CI)(M)"
-# check that c:\users\tut-exam not exist
+# check that c:\users\examuser not exist
 $date = Get-Date -format M-d-yyyy-hh-mm
 if ((test-path $profile)) {
 touch $logpath\examuser-exists-$env:computername-$date.txt
