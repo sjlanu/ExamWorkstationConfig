@@ -9,6 +9,9 @@
 
 ## Description
 
+Windows7 folder contains scripts and GPO settings for Win7 workstations
+Windows10 folder contains scripts and Puppet modules with manifests for Win10 workstations
+
 Windows workstation configurations for Exam including Group Policy settings and scripts
 
 More about Exam https://confluence.csc.fi/display/EXAM/EXAM
@@ -48,7 +51,7 @@ Backup Exam users session:
 
 ## Limitations
 
-Tested only with Windows7 64-bit
+Tested with Windows7 64-bit and Windows10 1709 64-bit
 
 ## Development
 
