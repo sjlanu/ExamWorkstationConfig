@@ -1,0 +1,16 @@
+<!-- ExamComputer Windows10 Start Menu layout -->
+<!-- Export-StartMenuLayout -Path c:\temp\examlayout.xml -->
+<!-- Copy xml file to 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\LayoutModification.xml' -->
+<!-- sami.lanu@tut.fi, 15.11.2017 --> 
+<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
+  <LayoutOptions StartTileGroupCellWidth="6" />
+  <DefaultLayoutOverride>
+    <StartLayoutCollection>
+      <defaultlayout:StartLayout GroupCellWidth="6">
+        <start:Group Name="">
+          <start:Tile Size="2x2" Column="0" Row="0" AppUserModelID="Microsoft.Windows.Cortana_cw5n1h2txyewy!CortanaUI" />
+        </start:Group>
+      </defaultlayout:StartLayout>
+    </StartLayoutCollection>
+  </DefaultLayoutOverride>
+</LayoutModificationTemplate>

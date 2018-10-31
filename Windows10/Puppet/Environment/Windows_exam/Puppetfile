@@ -1,0 +1,35 @@
+## The Forge can be defined here; it is defined in r10k.yaml too
+# forge 'forge.puppetlabs.com'
+# Forge modules for the environment
+mod 'puppetlabs/stdlib',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-stdlib.git',
+  :branch => 'master'
+mod 'puppetlabs/dsc',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-dsc.git',
+  :branch => 'exam'
+# 'puppetlabs/powershell' is dependency for 'puppetlabs/dsc'
+mod 'puppetlabs/powershell',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-powershell.git',
+  :branch => 'master'
+# 'puppetlabs/reboot' is dependency for 'puppetlabs/dsc'
+mod 'puppetlabs/reboot',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-reboot.git',
+  :branch => 'master'
+mod 'local_security_policy',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-local_security_policy.git',
+  :branch => 'exam'
+mod 'localadmin',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-localadmin.git',
+  :branch => 'master'
+mod 'puppetlabs/acl',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-acl.git',
+  :branch => 'exam'
+mod 'puppetlabs/registry',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-registry.git',
+  :branch => 'exam'
+mod 'tut/files',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-files.git',
+  :branch => 'exam'
+mod 'noma4i/windows_xmltask',
+  :git => 'gitlabuser@your.gitlab.server:puppet/tut-win-windows_xmltask.git',
+  :branch => 'exam'

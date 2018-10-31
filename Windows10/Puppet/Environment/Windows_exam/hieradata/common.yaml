@@ -1,0 +1,20 @@
+classes:
+  - registry::wsusexam_reg
+  - registry::firewallexam_reg
+  - registry::misc_exam_reg
+  - dsc::localgroup_cfg
+  - acl
+  - files::startmenulayout_exam
+  - files::mozilla_cfg_exam
+  - files::exam_instructions
+  - files::wmiperm_for_nagiosro
+  - windows_xmltask::profile_del
+  - windows_xmltask::backup_tut_exam
+  - windows_xmltask::delprof_schedule_205
+  - windows_xmltask::exam_nightlyreboot_0100
+  - windows_xmltask::create_examsw_shortcuts
+  - windows_xmltask::delprof_startup
+  - windows_xmltask::remove_office2016fff
+  - windows_xmltask::copy_pycharm2017settings
+  - windows_xmltask::tutexam_settings
+  - local_security_policy::exam_secpol
