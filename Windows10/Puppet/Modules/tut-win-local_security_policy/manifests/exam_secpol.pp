@@ -37,42 +37,42 @@ local_security_policy { 'Allow log on locally':
   policy_type    => 'Privilege Rights',
   policy_value   => '*S-1-5-32-544,*S-1-5-21-0000000000-111111111-222222222-33333,*S-1-5-21-0000000000-111111111-222222222-33333,*S-1-5-21-0000000000-111111111-222222222-33333,*S-1-5-21-0000000000-111111111-222222222-33333,*S-1-5-21-0000000000-111111111-222222222-33333',
 }
-#local_security_policy { 'EnableGuestAccount':
-#  ensure         => 'present',
-#  policy_setting => 'EnableGuestAccount',
-#  policy_type    => 'System Access',
-#  policy_value   => '0',
-#	}
+
 local_security_policy { 'Network access: Do not allow anonymous enumeration of SAM accounts':
   ensure         => 'present',
   policy_setting => 'MACHINE\System\CurrentControlSet\Control\Lsa\RestrictAnonymousSAM',
   policy_type    => 'Registry Values',
   policy_value   => '4,1',
 	}
+
 local_security_policy { 'Network access: Do not allow anonymous enumeration of SAM accounts and shares':
   ensure         => 'present',
   policy_setting => 'MACHINE\System\CurrentControlSet\Control\Lsa\RestrictAnonymous',
   policy_type    => 'Registry Values',
   policy_value   => '4,2',
 	}
+
 local_security_policy { 'Maximum password age':
   ensure         => 'present',
   policy_setting => 'MaximumPasswordAge',
   policy_type    => 'System Access',
   policy_value   => '-1',
 	}
+
 local_security_policy { 'Minimum password age':
   ensure         => 'present',
   policy_setting => 'MinimumPasswordAge',
   policy_type    => 'System Access',
   policy_value   => '0',
 	}
+
 local_security_policy { 'Minimum password length':
   ensure         => 'present',
   policy_setting => 'MinimumPasswordLength',
   policy_type    => 'System Access',
   policy_value   => '0',
 	}
+  
 local_security_policy { 'Password must meet complexity requirements':
   ensure => 'present',
   policy_setting => 'PasswordComplexity',
